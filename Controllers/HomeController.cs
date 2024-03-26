@@ -18,7 +18,17 @@ namespace JoshuaWood_ST10296167_CLDV_POE.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Contact()
+        {
+            return View();
+        }
+
+        public IActionResult About()
+        {
+            return View();
+        }
+
+        public IActionResult MyWork()
         {
             return View();
         }
