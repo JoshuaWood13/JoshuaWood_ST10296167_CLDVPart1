@@ -5,14 +5,14 @@
 <head>
     <style>
         body{
-            background-color: antiquewhite;
+            background-color: antiquewhite; /* setting background colour of the page */
         }
-        .display{
+        .display{  /* setting the layout of elements located in display */
             display: flex;
             flex-wrap: wrap;
             padding: 20px;
         }
-        .display-item{
+        .display-item{  /* settings the colour and layout of the display windows  */
             width: calc(33.33% - 20px);
             background-color: lightblue;
             padding: 20px;
@@ -22,27 +22,27 @@
             margin-right: 5px;
             margin-bottom: 10px;
         }
-        .display-item img{
+        .display-item img{  /* setting the size and constraints of display item images */
             width: 100%;
             border-radius: 8px;
                 width: 300px; 
                 height: 200px; 
                 object-fit: cover; 
         }
-        .artist{
+        .artist{  /* setting layout and font weight of artisan name in display window */
             margin-top: 10px;
             font-weight: bold;
         }
-        .price{
+        .price{  /* setting layout and font colour of item price in display window */
             margin-top: 5px;
             color: green;
         }
-        h1{
+        h1{  /* setting heading 1 font, colour and placement */
             text-align: center;
             color: brown;
             font-family: 'Century Schoolbook'
         }
-        p{
+        p{  /* setting the layout and font of paragraph text */
             text-align: center;
             font-family: 'Comic Sans MS', sans-serif;
         }
@@ -52,9 +52,9 @@
 <body>
     <h1>Explore our curated selection of handcrafted products</h1>
     <p>Artisans will receive 100% of your payment </p>
-    <div class="display-container">
-        <div class="display">
-            <div class="display-item">
+    <div class="display-container">  @* contains all display windows *@
+        <div class="display">  @* creating display window to house display item *@
+            <div class="display-item">  @* creating display item that contains and image, name and price *@
                 <img src="https://as2.ftcdn.net/v2/jpg/05/56/32/53/1000_F_556325396_2CU9ot0DWy61c9L0tHVutO4mMglHvFNu.jpg" alt="Artist Work" />
                 <div class="artist">Artisan Name: Bob Snarby</div>
                 <div class="price">Price: R1000</div>
