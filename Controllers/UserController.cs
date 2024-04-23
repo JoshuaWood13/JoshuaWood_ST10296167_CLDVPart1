@@ -14,8 +14,22 @@ namespace JoshuaWood_ST10296167_CLDV_POE.Controllers
             var result = usrtbl.insert_User(Users);
             return RedirectToAction("Index", "Home");
         }
+
         [HttpGet]
         public ActionResult Login()
+        {
+            return View(usrtbl);
+        }
+
+        [HttpPost]
+        public ActionResult SignUp(UserTable Users)
+        {
+            var result = usrtbl.insert_User(Users);
+            return RedirectToAction("Index", "Home");
+        }
+
+        [HttpGet]
+        public ActionResult SignUp()
         {
             return View(usrtbl);
         }
