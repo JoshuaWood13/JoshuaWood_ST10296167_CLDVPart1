@@ -18,6 +18,7 @@ namespace JoshuaWood_ST10296167_CLDV_POE.Models
 
         public int UserID { get; set; }
 
+        //This method inserts details for a new product into the database
         public int insert_product(ProductModel p, int userID)
         {
             try

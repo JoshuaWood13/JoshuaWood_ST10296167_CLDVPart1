@@ -29,21 +29,6 @@ namespace JoshuaWood_ST10296167_CLDV_POE.Controllers
             return View();
         }
 
-        //public IActionResult MyWork()
-        //{
-        //    return View();
-        //}
-
-        //public IActionResult Login()
-        //{
-        //    return View();
-        //}
-
-        //public IActionResult SignUp()
-        //{
-        //    return View();
-        //}
-
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

@@ -48,16 +48,14 @@
 <h1>Order History </h1>
 
 <body>
+    @* Table to display orders made *@
     <table>
         <thead>
             <tr>
                 <th>Transaction ID</th>
-                @* <th>User ID</th>
-                <th>Product ID</th> *@
                 <th>Product Name</th>
                 <th>Product Price</th>
                 <th>Order Status</th>
-                <!-- Add other product details as needed -->
             </tr>
         </thead>
         <tbody>
@@ -65,12 +63,9 @@
             {
                 <tr>
                     <td>@transaction.TransactionID</td>
-                    @* <td>@transaction.UserID</td>
-                    <td>@transaction.ProductID</td> *@
                     <td>@transaction.Product.ProductName</td>
                     <td>@transaction.Product.ProductPrice.ToString("F2")</td>
                     <td>@transaction.ProcessingStatus</td>
-                    <!-- Add other product details as needed -->
                 </tr>
             }
         </tbody>

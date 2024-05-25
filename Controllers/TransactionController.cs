@@ -7,6 +7,7 @@ namespace JoshuaWood_ST10296167_CLDV_POE.Controllers
     public class TransactionController : Controller
     {
         [HttpPost]
+        //This method processes a clients order and adds it to the transaction table
         public ActionResult PlaceOrder(int UserID, int ProductID)
         {
             try
@@ -25,7 +26,7 @@ namespace JoshuaWood_ST10296167_CLDV_POE.Controllers
 
                         if(rowsAffected > 0)
                         {
-                            return RedirectToAction("Index", "Home");
+                            return RedirectToAction("ViewOrders", "Transaction");
                         }
                         else
                         {
@@ -41,6 +42,7 @@ namespace JoshuaWood_ST10296167_CLDV_POE.Controllers
         }
 
         [HttpPost]
+        //This method updates the processing status of an order 
         public IActionResult UpdateProcessingStatus(int transactionID, string status)
         {
             try
@@ -75,10 +77,11 @@ namespace JoshuaWood_ST10296167_CLDV_POE.Controllers
         }
 
         [HttpGet]
+        //This method retrieves all orders made by a client along with certain product information for the orders
         public IActionResult ViewOrders(int UserID)
         {
             int userID = HttpContext.Session.GetInt32("UserID") ?? 0;
-            // Call the GetTransactionsByUserID method from the TransactionModel class
+
             List<TransactionModel> userTransactions = TransactionModel.GetTransactionsByUserID(userID);
 
             // Fetch product details for each transaction
@@ -96,19 +99,19 @@ namespace JoshuaWood_ST10296167_CLDV_POE.Controllers
         }
 
         [HttpGet]
+        //This method retrieves all orders made for a users products along with certain transaction and product information
         public IActionResult ViewClientOrders()
         {
             try
             {
                 int userID = HttpContext.Session.GetInt32("UserID") ?? 0;
 
-                // Call the GetOrdersForClientUsers method from the TransactionModel class
                 List<TransactionModel> clientOrders = TransactionModel.GetOrdersForClientUsers(userID);
 
                 // Fetch product details for each order
                 foreach (var order in clientOrders)
                 {
-                    // Call a method to fetch product details by product ID
+                    // Fetch product details by product ID
                     ProductDisplayModel product = ProductDisplayModel.GetProductDetailsByUserID(order.ProductID);
 
                     // Assign product details to the order object

@@ -6,6 +6,7 @@ namespace JoshuaWood_ST10296167_CLDV_POE.Models
     {
         public static string con_string = "Server=tcp:cldv-sql-server-poe.database.windows.net,1433;Initial Catalog=cldv-poe-DB;Persist Security Info=False;User ID=JoshuaWood;Password=Everdisk58!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30";
 
+        //This method checks for a matching email and password stored in the database from user input and returns the user ID
         public int selectUser(string email, string password)
         {
             int userID = -1;

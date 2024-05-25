@@ -17,9 +17,6 @@ namespace JoshuaWood_ST10296167_CLDV_POE.Models
         {
             List<TransactionModel> orders = new List<TransactionModel>();
 
-            // Connection string
-            //string connectionString = "Server=tcp:cldv-sql-server-poe.database.windows.net,1433;Initial Catalog=cldv-poe-DB;Persist Security Info=False;User ID=JoshuaWood;Password=Everdisk58!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30";
-
             // SQL query to retrieve transactions by user ID
             string query = "SELECT * FROM TransactionTable WHERE UserID = @UserID";
 
@@ -34,14 +31,13 @@ namespace JoshuaWood_ST10296167_CLDV_POE.Models
 
                 while (reader.Read())
                 {
-                    // Create a transaction object and add it to the list
+                    // Creates a transaction object and add it to the list
                     TransactionModel transaction = new TransactionModel
                     {
                         TransactionID = Convert.ToInt32(reader["TransactionID"]),
                         UserID = Convert.ToInt32(reader["UserID"]),
                         ProductID = Convert.ToInt32(reader["ProductID"]),
                         ProcessingStatus = reader["ProcessingStatus"].ToString(),
-                        // Add any other properties you may have in your Transaction model
                     };
 
                     orders.Add(transaction);

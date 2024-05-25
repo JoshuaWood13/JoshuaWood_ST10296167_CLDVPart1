@@ -10,9 +10,10 @@ namespace JoshuaWood_ST10296167_CLDV_POE.Models
         public string ProductCategory { get; set; }
         public bool ProductAvailability { get; set; }
 
+        //Default constructor
         public ProductDisplayModel() { }
 
-        //Parameterized Constructor: This constructor takes five parameters (id, name, price, category, availability) and initializes the corresponding properties of ProductDisplayModel with the provided values.
+        //Paramatized constructor
         public ProductDisplayModel(int id, string name, decimal price, string category, bool availability)
         {
             ProductID = id;
@@ -22,6 +23,7 @@ namespace JoshuaWood_ST10296167_CLDV_POE.Models
             ProductAvailability = availability;
         }
 
+        //This method retreivess all product details from the database and returns them to be displayed in a view
         public static List<ProductDisplayModel> DisplayProducts()
         {
             List<ProductDisplayModel> products = new List<ProductDisplayModel>();
@@ -48,7 +50,7 @@ namespace JoshuaWood_ST10296167_CLDV_POE.Models
             return products;
         }
 
-
+        //This method retrieves the product information of certain products based off an associated prodcut ID
         public static ProductDisplayModel GetProductDetailsByUserID(int productID)
         {
             ProductDisplayModel product = new ProductDisplayModel();
@@ -63,7 +65,6 @@ namespace JoshuaWood_ST10296167_CLDV_POE.Models
                 SqlDataReader reader = cmd.ExecuteReader();
                 if (reader.Read())
                 {
-                    //product.ProductID = Convert.ToInt32(reader["ProductID"]);
                     product.ProductName = Convert.ToString(reader["ProductName"]);
                     product.ProductPrice = Convert.ToDecimal(reader["ProductPrice"]);
                     product.ProductCategory = Convert.ToString(reader["ProductCategory"]);

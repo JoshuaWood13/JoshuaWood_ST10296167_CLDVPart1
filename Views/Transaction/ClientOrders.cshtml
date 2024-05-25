@@ -47,9 +47,10 @@
 
 <body>
 <h1>Client Orders For Your Products</h1>
-
+@* Checks if any user products have been ordered *@
 @if (Model != null && Model.Count > 0)
 {
+    @* Display a table of all relevant product orders *@
     <table border="1">
         <thead>
             <tr>
@@ -59,7 +60,6 @@
                 <th>Transaction ID</th>
                 <th>Order Status</th>
                 <th>Process</th>
-                <!-- Add more table headers as needed -->
             </tr>
         </thead>
         <tbody>
@@ -73,6 +73,7 @@
                         <td>@order.TransactionID</td>
                         <td>
                             <input type="hidden" name="transactionID" value="@order.TransactionID" />
+                            @* Allows user to set processing status *@
                             <select name="status">
                                 <option value="Pending" selected="@(order.ProcessingStatus == "Pending" ? "selected" : null)">Pending</option>
                                 <option value="Processing" selected="@(order.ProcessingStatus == "Processing" ? "selected" : null)">Processing</option>
@@ -80,6 +81,7 @@
                             </select>
                         </td>
                         <td>
+                            @* Apply updated processing status *@
                             <button type="submit">Update</button>
                         </td>
                     </tr>

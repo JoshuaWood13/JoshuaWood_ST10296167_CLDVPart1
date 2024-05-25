@@ -17,6 +17,7 @@ namespace JoshuaWood_ST10296167_CLDV_POE.Models
 
         public string Password { get; set; }
 
+        //This method checks and inserts new users into the databse
         public int insert_User(UserModel u)
         {
             try
@@ -42,27 +43,6 @@ namespace JoshuaWood_ST10296167_CLDV_POE.Models
                 throw;
             }
         }
-
-
-        //public int insert_User(UserTable u)
-        //{
-        //    try
-        //    {
-        //        string sql = "INSERT INTO userTable (UserName, UserSurname, UserEmail, UserPassword) VALUES (@Name, @Surname, @Email, @Password)";
-        //        SqlCommand cmd = new SqlCommand(sql, con);
-        //        cmd.Parameters.AddWithValue("@Name", u.Name);
-        //        cmd.Parameters.AddWithValue("@Surname", u.Surname);
-        //        cmd.Parameters.AddWithValue("@Email", u.Email);
-        //        cmd.Parameters.AddWithValue("@Password", u.Password);
-        //        con.Open();
-        //        int rowsAffected = cmd.ExecuteNonQuery();
-        //        con.Close();
-        //        return rowsAffected;
-        //    }
-        //    catch(Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        }
     }
+}
 

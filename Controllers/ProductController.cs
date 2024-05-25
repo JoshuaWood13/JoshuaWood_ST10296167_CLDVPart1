@@ -8,7 +8,6 @@ namespace JoshuaWood_ST10296167_CLDV_POE.Controllers
     public class ProductController : Controller
     {
         private readonly ProductModel prodtbl;
-        //public ProductModel prodtbl = new ProductModel();
 
         public ProductController()
         {
@@ -16,6 +15,7 @@ namespace JoshuaWood_ST10296167_CLDV_POE.Controllers
         }
 
         [HttpPost]
+        //Calls method to insert product into database and rediercts user to the home page
         public ActionResult AddProduct(ProductModel products)
         {
             int userID = HttpContext.Session.GetInt32("UserID") ?? 0;
@@ -30,6 +30,7 @@ namespace JoshuaWood_ST10296167_CLDV_POE.Controllers
         }
 
         [HttpGet]
+        //Calls and passes all the products to the MyWork view to display
         public IActionResult MyWork()
         {
             var products = ProductDisplayModel.DisplayProducts();

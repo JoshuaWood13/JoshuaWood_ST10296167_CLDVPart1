@@ -1,6 +1,4 @@
-﻿
-@* @model JoshuaWood_ST10296167_CLDV_POE.Models.UserTable *@
-@{
+﻿@{
     ViewData["Title"] = "Login";
 }
 <head>
@@ -27,6 +25,7 @@
 <h1>Login</h1>
 
 <body>
+    @* Allows a user to enter account details to login *@
 <form action = "Login" method= "post">
     <p> Email:</p>
     <input type="text" name="Email" placeholder="" required />

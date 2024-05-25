@@ -9,12 +9,6 @@ namespace JoshuaWood_ST10296167_CLDV_POE.Controllers
             return View();
         }
 
-        //public IActionResult Orders()
-        //{
-
-        //    return View();
-        //}
-
         public IActionResult OrderHistory()
         {
             return View();
