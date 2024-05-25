@@ -1,0 +1,45 @@
+﻿@model JoshuaWood_ST10296167_CLDV_POE.Models.ProductModel
+@{
+    ViewData["Title"] = "Add Product";
+}
+<head>
+    <style>
+        body {
+            background-color: antiquewhite; /* setting background colour of the page */
+            text-align: center;
+        }
+
+        h1 { /* setting heading 1 font, colour and placement */
+            font-size: 60px;
+            color: brown;
+            font-family: 'Palatino Linotype';
+            text-align: center;
+        }
+
+        p { /* setting the font of paragraph text */
+            font-family: 'Comic Sans MS', sans-serif;
+            margin-bottom: 5px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<h1>Add Your Product To Khumlocraft</h1>
+
+<body>
+    <form action="AddProduct" method="post">
+        <p> Product Name:</p>
+        <input type="text" name="Name" placeholder="" required />
+        <p> Product Price:</p>
+        <input type="text" name="Price" placeholder="" required />
+        <p> Product Category:</p>
+        <input type="text" name="Category" placeholder="" required />
+        <p> Product Availability:</p>
+        <select name="Availability">
+            <option value= "1" >Yes</option>
+            <option value= "0" >No</option>
+        </select>
+        <p></p>
+        <button type="submit" style="margin-top: 10px;">Add Product</button>
+    </form>
+</body>

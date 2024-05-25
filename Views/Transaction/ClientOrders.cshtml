@@ -1,0 +1,95 @@
+﻿<head>
+    <style>
+        body {
+            background-color: antiquewhite; /* setting background colour of the page */
+        }
+
+        h1 { /* setting heading 1 font, colour and placement */
+            font-size: 60px;
+            color: brown;
+            font-family: 'Palatino Linotype';
+            /* text-align: center; */
+        }
+
+        p { /* setting the font of paragraph text */
+            font-family: 'Comic Sans MS', sans-serif;
+            margin-bottom: 5px;
+            margin-top: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-spacing: 0; /* spacing between table cells */
+        }
+
+        th, td {
+            background-color: aliceblue;
+            padding: 10px; /* adjust the padding to add spacing between table items */
+            border-bottom: 1px solid #ddd; /* add line separators between rows */
+            border-right: 1px solid #ddd;
+        }
+
+        th {
+            background-color: darkorange; /* background color for table header */
+            text-align: left;
+        }
+
+        tr:hover td {
+            background-color: lightgray /* change background color on hover for better UX */
+        }
+
+        .blue-text{
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+<h1>Client Orders For Your Products</h1>
+
+@if (Model != null && Model.Count > 0)
+{
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Product ID</th>
+                <th>Product Name</th>
+                <th>Client ID</th>
+                <th>Transaction ID</th>
+                <th>Order Status</th>
+                <th>Process</th>
+                <!-- Add more table headers as needed -->
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var order in Model)
+            {
+                    <form asp-action="UpdateProcessingStatus" method="post">
+                    <tr>
+                        <td>@order.ProductID</td>
+                        <td>@order.ProductName</td>
+                        <td>@order.UserID</td>
+                        <td>@order.TransactionID</td>
+                        <td>
+                            <input type="hidden" name="transactionID" value="@order.TransactionID" />
+                            <select name="status">
+                                <option value="Pending" selected="@(order.ProcessingStatus == "Pending" ? "selected" : null)">Pending</option>
+                                <option value="Processing" selected="@(order.ProcessingStatus == "Processing" ? "selected" : null)">Processing</option>
+                                <option value="Completed" selected="@(order.ProcessingStatus == "Completed" ? "selected" : null)">Completed</option>
+                            </select>
+                        </td>
+                        <td>
+                            <button type="submit">Update</button>
+                        </td>
+                    </tr>
+                    </form>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No orders found.</p>
+}
+</body>

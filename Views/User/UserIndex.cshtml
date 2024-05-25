@@ -1,0 +1,64 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    // var userID = ViewData["UserID"];
+    var accountType = Context.Session.GetString("AccountType");
+    var userID = Context.Session.GetInt32("UserID");
+}
+
+<head>
+    <style>
+        body {
+            background-color: antiquewhite; /* setting background colour of the page */
+        }
+
+        h1 { /* setting heading 1 font, colour and placement */
+            font-size: 60px;
+            color: brown;
+            font-family: 'Palatino Linotype';
+            /* text-align: center; */
+        }
+
+        p { /* setting the font of paragraph text */
+            font-family: 'Comic Sans MS', sans-serif;
+            margin-bottom: 5px;
+            margin-top: 5px;
+        }
+
+        p:nth-of-type(1) { /* setting the font and size for specific parapgraphs */
+                font-family:'Arial Rounded MT', sans-serif;
+                font-size: 30px;
+        }
+    </style>
+</head>
+
+<h1>Welcome</h1>
+<body>
+    <p>Your user ID is: @userID</p>
+   @*  @if(accountType == "user")
+    { *@
+        <p>You have selected the account type USER and are be able to:</p>
+        <ul>
+            <li><a href="/Product/AddProduct">Add A Product</a></li>
+            <li><a href="/ControllerName2/ActionName2">View Client Orders</a></li>
+            <li><a href="/Product/MyWork">View Products</a></li>
+        </ul>
+        <p>If you would like to order a product, then please <a href="/Login/Logout">Logout</a> and Login with the Account Type CLIENT</p>
+   @*  } *@
+@*     else
+    {
+        <p>You have selected the Account Type CLIENT and are be able to:</p>
+        <ul>
+            <li><a href="/Product/MyWork">Order A Product</a></li>
+            <li><a href="/ControllerName2/ActionName2">View Order</a></li>
+            <li><a href="/ControllerName3/ActionName3">View Order History</a></li>
+        </ul>
+        <p>If you would like to add your own product to KhumaloCraft, then please <a href="/Login/Logout">Logout</a> and Login with the Account Type USER</p>
+    } *@
+    @*     <p>You have selected Account Type @accountType.ToUpper() and will be able to:</p>
+    <ul>
+        <li><a href="/Product/AddProduct">Add A Product</a></li>
+        <li><a href="/ControllerName2/ActionName2">View 2</a></li>
+        <li><a href="/ControllerName3/ActionName3">View 3</a></li>
+    </ul>
+    <p>If you would like to order a product, then please <a href="/Login/Logout">logout</a> and login with the Account Type CLIENT</p> *@
+</body>

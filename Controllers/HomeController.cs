@@ -13,8 +13,9 @@ namespace JoshuaWood_ST10296167_CLDV_POE.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(bool IsLoggedIn)
         {
+            ViewBag.IsLoggedIn = IsLoggedIn;
             return View();
         }
 
@@ -28,15 +29,15 @@ namespace JoshuaWood_ST10296167_CLDV_POE.Controllers
             return View();
         }
 
-        public IActionResult MyWork()
-        {
-            return View();
-        }
+        //public IActionResult MyWork()
+        //{
+        //    return View();
+        //}
 
-        public IActionResult Login()
-        {
-            return View();
-        }
+        //public IActionResult Login()
+        //{
+        //    return View();
+        //}
 
         //public IActionResult SignUp()
         //{

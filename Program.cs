@@ -8,6 +8,7 @@ namespace JoshuaWood_ST10296167_CLDV_POE
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddSession();
 
             var app = builder.Build();
 
@@ -26,9 +27,12 @@ namespace JoshuaWood_ST10296167_CLDV_POE
 
             app.UseAuthorization();
 
+            app.UseSession(); // Add session middleware
+
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
+
 
             app.Run();
         }

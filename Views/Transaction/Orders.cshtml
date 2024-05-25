@@ -1,0 +1,78 @@
+﻿@{
+    ViewData["Title"] = "Orders";
+}
+
+<head>
+    <style>
+        body {
+            background-color: antiquewhite; /* setting background colour of the page */
+        }
+
+        h1 { /* setting heading 1 font, colour and placement */
+            font-size: 60px;
+            color: brown;
+            font-family: 'Palatino Linotype';
+            /* text-align: center; */
+        }
+
+        p { /* setting the font of paragraph text */
+            font-family: 'Comic Sans MS', sans-serif;
+            margin-bottom: 5px;
+            margin-top: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-spacing: 0; /* spacing between table cells */
+        }
+
+        th, td {
+            background-color: aliceblue;
+            padding: 10px; /* adjust the padding to add spacing between table items */
+            border-bottom: 1px solid #ddd; /* add line separators between rows */
+            border-right: 1px solid #ddd;
+        }
+
+        th {
+            background-color:chartreuse; /* background color for table header */
+            text-align: left;
+        }
+
+        tr:hover td {
+            background-color: lightgray /* change background color on hover for better UX */
+        }
+    </style>
+</head>
+
+<h1>Order History </h1>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Transaction ID</th>
+                @* <th>User ID</th>
+                <th>Product ID</th> *@
+                <th>Product Name</th>
+                <th>Product Price</th>
+                <th>Order Status</th>
+                <!-- Add other product details as needed -->
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var transaction in Model)
+            {
+                <tr>
+                    <td>@transaction.TransactionID</td>
+                    @* <td>@transaction.UserID</td>
+                    <td>@transaction.ProductID</td> *@
+                    <td>@transaction.Product.ProductName</td>
+                    <td>@transaction.Product.ProductPrice.ToString("F2")</td>
+                    <td>@transaction.ProcessingStatus</td>
+                    <!-- Add other product details as needed -->
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
